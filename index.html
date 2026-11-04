@@ -8,13 +8,13 @@
         :root {
             --primary-color: #1a1a1a;
             --accent-color: #c0392b;
-            --bg-color: #f4f6f8;
+            --bg-color: #f8f9fa;
             --card-bg: #ffffff;
             --sidebar-bg: #ffffff;
             --text-color: #2c3e50;
-            --border-color: #dcdfe6;
-            --font-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-            --font-serif: 'Georgia', serif;
+            --border-color: #e1e8ed;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-serif: Georgia, serif;
             --font-scale: 1rem;
         }
 
@@ -29,13 +29,15 @@
             --border-color: #2c2c2c;
         }
 
-        /* Xóa bỏ hoàn toàn lỗi cách chữ và giãn khoảng trắng */
+        /* KHẮC PHỤC TRIỆT ĐỂ LỖI FONT VÀ CÁCH CHỮ */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            letter-spacing: normal;
-            word-spacing: normal;
+            letter-spacing: normal !important;
+            word-spacing: normal !important;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -446,12 +448,11 @@
         <section id="home-view" class="view-page active">
             <h1 class="hero-title" data-lang-vi="Tại sao dầu vẫn là một vấn đề lớn như vậy?" data-lang-en="Why oil is still a big deal">Tại sao dầu vẫn là một vấn đề lớn như vậy?</h1>
             
-            <!-- Bức ảnh mới bạn cung cấp được đưa vào làm điểm nhấn mở đầu -->
-            <div class="article-image" style="max-width: 500px; margin: 20px auto;">
+            <div class="article-image" style="max-width: 480px; margin: 20px auto;">
                 <img src="images/oil-background.jpg" alt="Khai thác dầu mỏ">
             </div>
 
-            <p class="hero-lead" data-lang-vi="Chúng ta đang sống ở một thời đại mà sáng ra lướt mạng xã hội là thấy hàng loạt bài viết đầy cảm hứng về 'kỷ nguyên xanh', 'tương lai xe điện' hay 'lối sống bền vững'. Người ta nói về pin mặt trời như thể đó là phép thuật giải cứu trái đất, và nhắc đến turbine gió với vẻ tự hào của một thế hệ sắp sửa 'cai nghiện' được hóa thạch. Thế giới hiện đại có vẻ vô cùng bận rộn với các hội nghị khí hậu thượng đỉnh, nơi các nhà tài phiệt hay người nổi tiếng vô tư bay chiếc chuyên cơ riêng đắt đỏ đến để hô hào về một tương lai không khói bụi. Thế nhưng, sự thật phũ phàng là: Mỗi lần thế giới ho hắng một tiếng vì thiếu dầu, toàn bộ nền kinh tế toàn cầu lại lên cơn sốt." data-lang-en="We live in an era where scrolling social media reveals endless inspiring articles about the 'green era', 'electric vehicle future', or 'sustainable lifestyle'. People talk about solar panels as if they were magical spells saving the earth, and mention wind turbines with the pride of a generation about to 'quit' fossil fuels. The modern world seems busy with climate summits where tycoons fly private jets to advocate for a smokeless future. Yet, the harsh reality is: Every time the world sneezes from a lack of oil, the entire global economy spikes a fever.">Chúng ta đang sống ở một thời đại mà sáng ra lướt mạng xã hội là thấy hàng loạt bài viết đầy cảm hứng về "kỷ nguyên xanh", "tương lai xe điện" hay "lối sống bền vững". Người ta nói về pin mặt trời như thể đó là phép thuật giải cứu trái đất, và nhắc đến turbine gió với vẻ tự hào của một thế hệ sắp sửa "cai nghiện" được hóa thạch. Thế giới hiện đại có vẻ vô cùng bận rộn với các hội nghị khí hậu thượng đỉnh, nơi các nhà tài phiệt hay người nổi tiếng vô tư bay chiếc chuyên cơ riêng đắt đỏ đến để hô hào về một tương lai không khói bụi. Thế nhưng, sự thật phũ phàng là: Mỗi lần thế giới ho hắng một tiếng vì thiếu dầu, toàn bộ nền kinh tế toàn cầu lại lên cơn sốt[cite: 6].</p>
+            <p class="hero-lead" data-lang-vi="Chúng ta đang sống ở một thời đại mà sáng ra lướt mạng xã hội là thấy hàng loạt bài viết đầy cảm hứng về 'kỷ nguyên xanh', 'tương lai xe điện' hay 'lối sống bền vững'. Người ta nói về pin mặt trời như thể đó là phép thuật giải cứu trái đất, và nhắc đến turbine gió với vẻ tự hào của một thế hệ sắp sửa 'cai nghiện' được hóa thạch. Thế giới hiện đại có vẻ vô cùng bận rộn với các hội nghị khí hậu thượng đỉnh, nơi các nhà tài phiệt hay người nổi tiếng vô tư bay chiếc chuyên cơ riêng đắt đỏ đến để hô hào về một tương lai không khói bụi. Thế nhưng, sự thật phũ phàng là: Mỗi lần thế giới ho hắng một tiếng vì thiếu dầu, toàn bộ nền kinh tế toàn cầu lại lên cơn sốt." data-lang-en="We live in an era where scrolling social media reveals endless inspiring articles about the 'green era', 'electric vehicle future', or 'sustainable lifestyle'. People talk about solar panels as if they were magical spells saving the earth, and mention wind turbines with the pride of a generation about to 'quit' fossil fuels. The modern world seems busy with climate summits where tycoons fly private jets to advocate for a smokeless future. Yet, the harsh reality is: Every time the world sneezes from a lack of oil, the entire global economy spikes a fever.">Chúng ta đang sống ở một thời đại mà sáng ra lướt mạng xã hội là thấy hàng loạt bài viết đầy cảm hứng về "kỷ nguyên xanh", "tương lai xe điện" hay "lối sống bền vững". Người ta nói về pin mặt trời như thể đó là phép thuật giải cứu trái đất, và nhắc đến turbine gió với vẻ tự hào của một thế hệ sắp sửa "cai nghiện" được hóa thạch. Thế giới hiện đại có vẻ vô cùng bận rộn với các hội nghị khí hậu thượng đỉnh, nơi các nhà tài phiệt hay người nổi tiếng vô tư bay chiếc chuyên cơ riêng đắt đỏ đến để hô hào về một tương lai không khói bụi. Thế কিন্তু, sự thật phũ phàng là: Mỗi lần thế giới ho hắng một tiếng vì thiếu dầu, toàn bộ nền kinh tế toàn cầu lại lên cơn sốt[cite: 6].</p>
             <button class="cta-btn" onclick="showArticleView()" data-lang-vi="Tìm hiểu tại sao →" data-lang-en="Find Out Why →">Tìm hiểu tại sao →</button>
         </section>
 
@@ -587,7 +588,7 @@
 
                     <!-- HỘP ĐỐ VUI TƯƠNG TÁC -->
                     <div class="quiz-box">
-                        <div class="quiz-title" data-lang-vi="🧠 Đố vui: Đoán xem mỗi năm có bao nhiêu tỷ tấn CO₂ và khí độc phát thải ra môi trường từ việc đốt nhiên liệu hóa thạch?" data-lang-en="🧠 Interactive Quiz: Guess how many billion tonnes of CO₂ & toxic gases are emitted yearly from fossil fuel combustion?">🧠 Đố vui tương tác: Đoán xem mỗi năm có bao nhiêu tỷ tấn CO₂ và khí độc phát thải ra môi trường từ việc đốt nhiên liệu hóa thạch?</div>
+                        <div class="quiz-title" data-lang-vi="🧠 Đố vui tương tác: Đoán xem mỗi năm có bao nhiêu tỷ tấn CO₂ và khí độc phát thải ra môi trường từ việc đốt nhiên liệu hóa thạch?" data-lang-en="🧠 Interactive Quiz: Guess how many billion tonnes of CO₂ & toxic gases are emitted yearly from fossil fuel combustion?">🧠 Đố vui tương tác: Đoán xem mỗi năm có bao nhiêu tỷ tấn CO₂ và khí độc phát thải ra môi trường từ việc đốt nhiên liệu hóa thạch?</div>
                         <div class="quiz-option" onclick="checkQuiz(1, this)"><span data-lang-vi="A) Khoảng 10 - 15 tỷ tấn" data-lang-en="A) Around 10 - 15 billion tonnes">A) Khoảng 10 - 15 tỷ tấn</span></div>
                         <div class="quiz-option" onclick="checkQuiz(2, this)"><span data-lang-vi="B) Khoảng 35 - 37 tỷ tấn" data-lang-en="B) Around 35 - 37 billion tonnes">B) Khoảng 35 - 37 tỷ tấn</span></div>
                         <div class="quiz-option" onclick="checkQuiz(3, this)"><span data-lang-vi="C) Hơn 50 tỷ tấn" data-lang-en="C) Over 50 billion tonnes">C) Hơn 50 tỷ tấn</span></div>
