@@ -33,8 +33,7 @@
             --font-serif: "Noto Serif", "Times New Roman", Times, serif;
             --font-scale: 1rem;
         }
-
-        /* Dark Theme */
+        
         [data-theme="dark"] {
             color-scheme: dark;
             --primary-color: #ece8df;
@@ -57,7 +56,6 @@
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* KHẮC PHỤC TRIỆT ĐỂ LỖI FONT VÀ CÁCH CHỮ */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -84,7 +82,6 @@
             display: flex;
         }
 
-        /* Reading Progress Bar */
         #progress-bar {
             position: fixed;
             top: 0;
@@ -95,9 +92,6 @@
             z-index: 1000;
         }
 
-        /* -----------------------------------
-           Sidebar (Thanh điều hướng bên trái)
-        ----------------------------------- */
         .sidebar {
             width: 17.5rem;
             height: 100vh;
@@ -184,9 +178,6 @@
             transform: translateX(4px);
         }
 
-        /* -----------------------------------
-           Main Layout & Views
-        ----------------------------------- */
         .main-wrapper {
             margin-left: 17.5rem;
             padding: 40px 20px;
@@ -208,9 +199,6 @@
             display: block;
         }
 
-        /* -----------------------------------
-           1. TRANG MỞ ĐẦU (Gọn nhẹ, không lag)
-        ----------------------------------- */
         #home-view {
             background: var(--card-bg);
             padding: 60px 45px;
@@ -259,9 +247,6 @@
             opacity: 0.9;
         }
 
-        /* -----------------------------------
-           2. TRANG BÀI VIẾT
-        ----------------------------------- */
         #article-view {
             background: var(--card-bg);
             padding: 45px;
@@ -300,7 +285,6 @@
             text-align: justify;
         }
 
-        /* Tiếng Anh: căn đều hai bên làm chữ giãn cách xấu -> căn trái */
         :where(html[lang="en"]) p {
             text-align: left;
         }
@@ -373,7 +357,6 @@
             background-color: var(--soft-bg);
         }
 
-        /* HỘP ĐỐ VUI TƯƠNG TÁC */
         .quiz-box {
             background: var(--bg-color);
             border: 1px solid var(--border-color);
@@ -440,9 +423,6 @@
             text-decoration: underline;
         }
 
-        /* -----------------------------------
-           THANH THU GỌN / MỞ RỘNG CÁC PHẦN
-        ----------------------------------- */
         .acc-tools {
             display: flex;
             justify-content: flex-end;
@@ -496,7 +476,6 @@
             outline-offset: 2px;
         }
 
-        /* Mũi tên: hướng xuống khi mở, hướng sang phải khi thu gọn */
         .acc-section > h2::after {
             content: "";
             flex: none;
@@ -538,9 +517,6 @@
             padding-top: 22px;
         }
 
-        /* -----------------------------------
-           HIỆU ỨNG TRƯỢT GIỮA CÁC TRANG
-        ----------------------------------- */
         @keyframes slideOutLeft  { to   { opacity: 0; transform: translateX(calc(var(--slide-dist) * -1)); } }
         @keyframes slideOutRight { to   { opacity: 0; transform: translateX(var(--slide-dist)); } }
         @keyframes slideInRight  { from { opacity: 0; transform: translateX(var(--slide-dist)); }  to { opacity: 1; transform: none; } }
@@ -551,7 +527,6 @@
         .view-page.in-right  { animation: slideInRight  0.45s ease-out; }
         .view-page.in-left   { animation: slideInLeft   0.45s ease-out; }
 
-        /* Đố vui: màu đúng/sai dịu hơn */
         .quiz-option.correct {
             background: var(--ok-soft);
             border-color: var(--ok-color);
@@ -562,14 +537,9 @@
             border-color: var(--bad-color);
         }
 
-        /* Ảnh sáng trên nền tối: giảm độ chói */
         [data-theme="dark"] .article-image img {
             filter: brightness(0.9) contrast(0.96);
-        }
-
-        /* -----------------------------------
-           POP-UP ĐIỀU KHOẢN / MIỄN TRỪ TRÁCH NHIỆM
-        ----------------------------------- */
+    
         html.disc-open, html.disc-open body {
             overflow: hidden;
         }
@@ -755,9 +725,6 @@
             .disc-title { font-size: 1.2rem; }
         }
 
-        /* -----------------------------------
-           MENU 3 GẠCH + THANH ĐIỀU HƯỚNG TRƯỢT RA (điện thoại / máy tính bảng)
-        ----------------------------------- */
         .menu-btn, .nav-backdrop {
             display: none;
         }
@@ -807,7 +774,6 @@
             .menu-btn .bars span:nth-child(2) { top: 50%; }
             .menu-btn .bars span:nth-child(3) { top: 100%; margin-top: -2.5px; }
 
-            /* Khi mở: 3 gạch biến thành dấu X (2 nét chéo) */
             html.menu-open .menu-btn .bars span:nth-child(1) { top: 50%; margin-top: -1.25px; transform: rotate(45deg); }
             html.menu-open .menu-btn .bars span:nth-child(2) { opacity: 0; }
             html.menu-open .menu-btn .bars span:nth-child(3) { top: 50%; margin-top: -1.25px; transform: rotate(-45deg); }
@@ -868,7 +834,6 @@
             }
         }
 
-        /* Máy tính: dùng nhiều diện tích màn hình hơn, chữ lớn dần theo màn hình */
         @media (min-width: 1200px) {
             html { font-size: 106.25%; }
             .main-wrapper { padding: 40px 3vw; }
@@ -888,13 +853,9 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            /* Vẫn giữ hiệu ứng nhưng trượt ngắn hơn, thay vì tắt hẳn */
             :root { --slide-dist: 24px; }
         }
 
-        /* -----------------------------------
-           XEM ẢNH PHÓNG TO (lightbox)
-        ----------------------------------- */
         html.lb-open, html.lb-open body {
             overflow: hidden;
         }
@@ -993,7 +954,6 @@
     </style>
 </head>
 <body>
-    <!-- POP-UP ĐIỀU KHOẢN & MIỄN TRỪ TRÁCH NHIỆM (hiện mỗi lần mở trang, chỉ đóng bằng nút "Tiếp tục") -->
     <div id="disclaimer-overlay" class="disc-overlay">
         <div class="disc-modal" role="dialog" aria-modal="true" aria-labelledby="disc-title" aria-describedby="disc-body" tabindex="-1">
             <div class="disc-head">
@@ -1018,16 +978,13 @@
     </div>
 
 
-    <!-- Reading Progress Bar -->
     <div id="progress-bar"></div>
 
-    <!-- Nút menu 3 gạch (chỉ hiện trên điện thoại / máy tính bảng) -->
     <button type="button" id="menu-btn" class="menu-btn" aria-label="Menu" aria-controls="sidebar" aria-expanded="false" onclick="toggleMenu()">
         <span class="bars"><span></span><span></span><span></span></span>
     </button>
     <div id="nav-backdrop" class="nav-backdrop" onclick="closeMenu()"></div>
 
-    <!-- Xem ảnh phóng to -->
     <div id="lightbox" class="lb" role="dialog" aria-modal="true" aria-label="Xem ảnh / Image viewer">
         <div id="lb-stage" class="lb-stage"><img id="lb-img" class="lb-img" alt="" draggable="false"></div>
         <div class="lb-toolbar">
@@ -1039,7 +996,6 @@
         <div class="lb-hint" data-lang-vi="Cuộn chuột hoặc chụm hai ngón tay để phóng to · Kéo để di chuyển · Nhấp đúp để phóng/thu" data-lang-en="Scroll or pinch to zoom · Drag to move · Double-click to zoom in/out">Cuộn chuột hoặc chụm hai ngón tay để phóng to · Kéo để di chuyển · Nhấp đúp để phóng/thu</div>
     </div>
 
-    <!-- Sidebar Navigation -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <span class="sidebar-title" data-lang-vi="Mục lục" data-lang-en="Contents">Mục lục</span>
@@ -1062,10 +1018,9 @@
         </ul>
     </aside>
 
-    <!-- Main Content Container -->
     <div class="main-wrapper">
 
-        <!-- 1. TRANG MỞ ĐẦU -->
+        <!-- TRANG MỞ ĐẦU -->
         <section id="home-view" class="view-page active">
             <h1 class="hero-title" data-lang-vi="Tại sao dầu vẫn là một vấn đề lớn như vậy?" data-lang-en="Why Oil Is Still Such a Big Deal">Tại sao dầu vẫn là một vấn đề lớn như vậy?</h1>
 
@@ -1073,7 +1028,7 @@
             <button class="cta-btn" onclick="showArticleView()" data-lang-vi="Tìm hiểu tại sao →" data-lang-en="Find Out Why →">Tìm hiểu tại sao →</button>
         </section>
 
-        <!-- 2. TRANG BÀI VIẾT -->
+        <!-- TRANG BÀI VIẾT -->
         <section id="article-view" class="view-page">
             <article>
                 <header>
@@ -1085,7 +1040,7 @@
                         <button class="acc-tool-btn" onclick="setAllSections(false)" data-lang-vi="Thu gọn tất cả" data-lang-en="Collapse all">Thu gọn tất cả</button>
                         <button class="acc-tool-btn" onclick="setAllSections(true)" data-lang-vi="Mở rộng tất cả" data-lang-en="Expand all">Mở rộng tất cả</button>
                     </div>
-
+                    
                     <!-- MỤC 1 -->
                     <div class="acc-section">
                     <h2 id="phan-1" role="button" tabindex="0" aria-expanded="true" onclick="toggleSection(this)" onkeydown="sectionKey(event, this)" data-lang-vi="1. Dầu trong nền kinh tế: Cuộc trao đổi trị giá hàng nghìn tỷ USD và ảo tưởng của chúng ta" data-lang-en="1. Oil in the Economy: A Trillion-Dollar Trade and Our Illusion">1. Dầu trong nền kinh tế: Cuộc trao đổi trị giá hàng nghìn tỷ USD và ảo tưởng của chúng ta</h2>
@@ -1105,11 +1060,10 @@
                         <img src="images/1.Ứng dụng của dầu.jfif" alt="Ứng dụng của dầu mỏ" data-src-en="images/en/used-of-oil.png" data-alt-en="Uses of crude oil and petroleum derivatives">
                         <div class="image-caption" data-lang-vi="Hình 1: Sơ đồ cấu trúc phân tách và các sản phẩm ứng dụng từ dầu thô trong đời sống." data-lang-en="Figure 1: Structure and application diagram of crude oil in daily life.">Hình 1: Sơ đồ cấu trúc phân tách và các sản phẩm ứng dụng từ dầu thô trong đời sống.</div>
                     </div>
-
+                        
                     <!-- MỤC 2 -->
                     </div></div></div>
                     </div>
-
                     <div class="acc-section">
                     <h2 id="phan-2" role="button" tabindex="0" aria-expanded="true" onclick="toggleSection(this)" onkeydown="sectionKey(event, this)" data-lang-vi="2. Dầu rốt cuộc là cái gì?" data-lang-en="2. What Exactly Is Oil?">2. Dầu rốt cuộc là cái gì?</h2>
                     <div class="acc-body"><div class="acc-inner"><div class="acc-content">
@@ -1227,7 +1181,6 @@
                         <li data-lang-vi="Hội chứng 'Quên nhanh nhớ lâu': Như các nhà kinh tế học phân tích, những cú sốc giá năng lượng trong quá khứ từng tạo ra phong trào chuyển đổi mạnh mẽ, nhưng khi giá dầu bình ổn trở lại, tâm lý chủ quan lại quay về. Dẫu vậy, điểm khác biệt lớn nhất của thời điểm hiện tại là các công nghệ xanh (xe điện, pin lưu trữ, bếp từ, máy bơm nhiệt) đã trở nên rẻ hơn, thông minh hơn và dễ tiếp cận hơn rất nhiều so với vài thập kỷ trước, giúp người tiêu dùng có thêm công cụ tự bảo vệ mình trước những biến động địa chính trị." data-lang-en="&lt;strong&gt;The “Short Memory” Syndrome:&lt;/strong&gt; As economists analyze, historical energy price shocks generated strong transition movements, but when oil prices stabilized, complacency returned. Nevertheless, the key difference today is that green technologies (EVs, storage batteries, induction cooktops, heat pumps) have become significantly cheaper, smarter, and far more accessible than a few decades ago, equipping consumers with tools to protect themselves against geopolitical volatility."><strong>Hội chứng "Quên nhanh nhớ lâu":</strong> Như các nhà kinh tế học phân tích, những cú sốc giá năng lượng trong quá khứ từng tạo ra phong trào chuyển đổi mạnh mẽ, nhưng khi giá dầu bình ổn trở lại, tâm lý chủ quan lại quay về. Dẫu vậy, điểm khác biệt lớn nhất của thời điểm hiện tại là các công nghệ xanh (xe điện, pin lưu trữ, bếp từ, máy bơm nhiệt) đã trở nên rẻ hơn, thông minh hơn và dễ tiếp cận hơn rất nhiều so với vài thập kỷ trước, giúp người tiêu dùng có thêm công cụ tự bảo vệ mình trước những biến động địa chính trị.</li>
                     </ul>
 
-                    <!-- HỘP ĐỐ VUI TƯƠNG TÁC -->
                     <div class="quiz-box">
                         <div class="quiz-title" data-lang-vi="🧠 Đố vui tương tác: Đoán xem mỗi năm có bao nhiêu tỷ tấn CO&lt;sub&gt;2&lt;/sub&gt; và khí độc phát thải ra môi trường từ việc đốt nhiên liệu hóa thạch?" data-lang-en="🧠 Interactive Quiz: Guess how many billion tonnes of CO&lt;sub&gt;2&lt;/sub&gt; & toxic gases are emitted yearly from fossil fuel combustion?">🧠 Đố vui tương tác: Đoán xem mỗi năm có bao nhiêu tỷ tấn CO<sub>2</sub> và khí độc phát thải ra môi trường từ việc đốt nhiên liệu hóa thạch?</div>
                         <div class="quiz-option" onclick="checkQuiz(1, this)"><span data-lang-vi="A) Khoảng 10 - 15 tỷ tấn" data-lang-en="A) Around 10 - 15 billion tonnes">A) Khoảng 10 - 15 tỷ tấn</span></div>
@@ -1236,7 +1189,7 @@
                         
                         <div id="quiz-result" class="quiz-feedback"></div>
                     </div>
-
+                        
                     <!-- KẾT LUẬN -->
                     </div></div></div>
                     </div>
@@ -1264,9 +1217,7 @@
 
     </div>
 
-    <!-- JavaScript điều khiển -->
     <script>
-        // ----- Menu 3 gạch (điện thoại) -----
         function toggleMenu(force) {
             const root = document.documentElement;
             const open = force === undefined ? !root.classList.contains("menu-open") : force;
@@ -1282,7 +1233,6 @@
         });
         window.addEventListener("resize", () => { if (window.innerWidth > 992) closeMenu(); });
 
-        // ----- Xem ảnh phóng to: lăn chuột / chụm 2 ngón / kéo / nhấp đúp -----
         function initLightbox() {
             const lb = document.getElementById("lightbox");
             const stage = document.getElementById("lb-stage");
@@ -1310,7 +1260,6 @@
                 lb.classList.toggle("zoomed", s > 1.01);
             }
 
-            // Phóng/thu quanh điểm (cx, cy) tính từ tâm khung -> điểm đó đứng yên dưới con trỏ/ngón tay
             function zoomTo(ns, cx, cy, smooth) {
                 ns = Math.min(MAX, Math.max(MIN, ns));
                 const k = ns / s;
@@ -1358,7 +1307,6 @@
                 if (opener) opener.focus({ preventScroll: true });
             }
 
-            // Mở khi bấm vào ảnh trong bài (cũng mở được bằng Enter / Space)
             document.querySelectorAll(".article-image img").forEach(im => {
                 im.tabIndex = 0;
                 im.setAttribute("role", "button");
@@ -1368,7 +1316,6 @@
                 });
             });
 
-            // Lăn chuột = phóng/thu tại vị trí con trỏ (cả chụm hai ngón trên touchpad)
             stage.addEventListener("wheel", e => {
                 e.preventDefault();
                 const c = center();
@@ -1378,7 +1325,7 @@
 
             stage.addEventListener("pointerdown", e => {
                 lastType = e.pointerType;
-                try { stage.setPointerCapture(e.pointerId); } catch (err) { /* bỏ qua */ }
+                try { stage.setPointerCapture(e.pointerId); } catch (err) { }
                 pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
                 if (pts.size === 1) {
                     drag = { x: e.clientX, y: e.clientY, tx, ty, moved: false, target: e.target };
@@ -1392,7 +1339,7 @@
                     drag = null;
                 }
             });
-
+            
             stage.addEventListener("pointermove", e => {
                 if (!pts.has(e.pointerId)) return;
                 pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
@@ -1427,7 +1374,7 @@
                     if (pts.size < 2) {
                         pinch = null;
                         if (s < 1.02) { s = 1; tx = 0; ty = 0; apply(true); }
-                        if (pts.size === 1) {                      // nhấc 1 ngón -> ngón còn lại tiếp tục kéo
+                        if (pts.size === 1) {
                             const p = [...pts.values()][0];
                             drag = { x: p.x, y: p.y, tx, ty, moved: true, target: null };
                         }
@@ -1436,7 +1383,7 @@
                 }
 
                 if (drag && e.type === "pointerup" && !drag.moved) {
-                    if (e.pointerType !== "mouse") {               // chạm 2 lần liên tiếp = phóng/thu
+                    if (e.pointerType !== "mouse") {
                         const now = performance.now();
                         if (now - lastTap.t < 320 && Math.hypot(e.clientX - lastTap.x, e.clientY - lastTap.y) < 30) {
                             toggleZoom(e.clientX, e.clientY);
@@ -1446,23 +1393,21 @@
                         }
                         lastTap = { t: now, x: e.clientX, y: e.clientY };
                     }
-                    if (drag.target === stage) closeLb();          // bấm vào vùng trống quanh ảnh -> đóng
+                    if (drag.target === stage) closeLb();
                 }
                 drag = null;
             }
             stage.addEventListener("pointerup", endPointer);
             stage.addEventListener("pointercancel", endPointer);
 
-            // Nhấp đúp chuột = phóng/thu (cảm ứng đã xử lý ở trên)
             stage.addEventListener("dblclick", e => {
                 if (lastType !== "mouse") return;
-                const r = img.getBoundingClientRect();     // kiểm tra theo vị trí vì pointer capture đổi target
+                const r = img.getBoundingClientRect();
                 if (e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom) {
                     toggleZoom(e.clientX, e.clientY);
                 }
             });
 
-            // Chặn trình duyệt tự phóng to cả trang khi chụm ngón tay (iOS Safari)
             stage.addEventListener("touchmove", e => e.preventDefault(), { passive: false });
             ["gesturestart", "gesturechange"].forEach(n => stage.addEventListener(n, e => e.preventDefault()));
 
@@ -1485,7 +1430,7 @@
                     if (e.key === "ArrowUp") ty += 60;
                     if (e.key === "ArrowDown") ty -= 60;
                     apply(true);
-                } else if (e.key === "Tab") {                     // giữ Tab trong thanh công cụ
+                } else if (e.key === "Tab") {
                     const items = [...lb.querySelectorAll(".lb-btn")];
                     const first = items[0], last = items[items.length - 1];
                     if (!lb.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
@@ -1504,7 +1449,6 @@
             root.style.scrollBehavior = "";
         }
 
-        // Chuyển trang có hiệu ứng trượt: "forward" = sang bài viết, "back" = về trang mở đầu
         function switchView(fromId, toId, direction, onShown) {
             if (viewBusy) return;
             viewBusy = true;
@@ -1553,13 +1497,12 @@
             showArticleView(() => {
                 const target = document.getElementById(sectionId);
                 if (target) {
-                    toggleSection(target, true);   // mở phần đó nếu đang thu gọn
+                    toggleSection(target, true);
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         }
 
-        // Thu gọn / mở rộng từng phần bài viết
         function toggleSection(h2, open) {
             const section = h2.parentElement;
             const collapse = open === undefined ? !section.classList.contains('collapsed') : !open;
@@ -1634,16 +1577,13 @@
         let currentLang = localStorage.getItem("lang") || "vi";
         function applyLanguage(lang) {
             document.querySelectorAll("[data-lang-vi]").forEach(el => {
-                // Lưu nội dung tiếng Việt gốc (kể cả <strong>) ở lần chạy đầu tiên
                 if (el._viHTML === undefined) el._viHTML = el.innerHTML;
                 el.innerHTML = lang === "vi" ? el._viHTML : el.getAttribute("data-lang-en");
             });
-
-            // Đổi ảnh theo ngôn ngữ
+            
             document.querySelectorAll("img[data-src-en]").forEach(img => {
                 if (img._vi === undefined) img._vi = { src: img.getAttribute("src"), alt: img.getAttribute("alt") };
                 if (lang === "en") {
-                    // Chưa có file ảnh tiếng Anh -> dùng lại ảnh gốc thay vì hiện ảnh lỗi
                     img.onerror = () => { img.onerror = null; img.setAttribute("src", img._vi.src); };
                     img.setAttribute("src", img.getAttribute("data-src-en"));
                     img.setAttribute("alt", img.getAttribute("data-alt-en"));
@@ -1664,7 +1604,6 @@
             applyLanguage(currentLang);
         }
 
-        // Pop-up điều khoản: hiện mỗi lần mở trang, chỉ đóng bằng nút "Tiếp tục"
         function initDisclaimer() {
             const overlay = document.getElementById("disclaimer-overlay");
             const modal = overlay.querySelector(".disc-modal");
@@ -1674,10 +1613,9 @@
             let open = true;
 
             document.documentElement.classList.add("disc-open");
-            background.forEach(el => el.setAttribute("inert", ""));   // nội dung phía sau không bấm/Tab tới được
+            background.forEach(el => el.setAttribute("inert", "")); 
             modal.focus();
 
-            // Không cho đóng bằng phím Esc; giữ phím Tab trong pop-up
             document.addEventListener("keydown", e => {
                 if (!open) return;
                 if (e.key === "Escape") { e.preventDefault(); return; }
@@ -1685,7 +1623,7 @@
                 const items = Array.from(overlay.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])'));
                 const first = items[0], last = items[items.length - 1];
                 if (!overlay.contains(document.activeElement)) {
-                    e.preventDefault(); first.focus();   // focus lạc ra ngoài (vd. sau khi bấm nền) -> kéo về
+                    e.preventDefault(); first.focus();
                 } else if (e.shiftKey && (document.activeElement === first || document.activeElement === modal)) {
                     e.preventDefault(); last.focus();
                 } else if (!e.shiftKey && document.activeElement === last) {
