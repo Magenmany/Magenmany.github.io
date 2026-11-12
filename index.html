@@ -1516,11 +1516,10 @@
             root.style.scrollBehavior = "";
         }
 
-        // Chuyển trang có hiệu ứng trượt: "forward" = sang bài viết, "back" = về trang mở đầu
         function switchView(fromId, toId, direction, onShown) {
             if (viewBusy) return;
             viewBusy = true;
-            document.body.classList.toggle("home-active", toId === "home-view");   // ảnh nền chỉ hiện ở trang mở đầu
+            document.body.classList.toggle("home-active", toId === "home-view");
             const from = document.getElementById(fromId);
             const to = document.getElementById(toId);
             const outCls = direction === "forward" ? "out-left" : "out-right";
@@ -1566,13 +1565,12 @@
             showArticleView(() => {
                 const target = document.getElementById(sectionId);
                 if (target) {
-                    toggleSection(target, true);   // mở phần đó nếu đang thu gọn
+                    toggleSection(target, true);
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         }
 
-        // Thu gọn / mở rộng từng phần bài viết
         function toggleSection(h2, open) {
             const section = h2.parentElement;
             const collapse = open === undefined ? !section.classList.contains('collapsed') : !open;
@@ -1647,16 +1645,13 @@
         let currentLang = localStorage.getItem("lang") || "vi";
         function applyLanguage(lang) {
             document.querySelectorAll("[data-lang-vi]").forEach(el => {
-                // Lưu nội dung tiếng Việt gốc (kể cả <strong>) ở lần chạy đầu tiên
                 if (el._viHTML === undefined) el._viHTML = el.innerHTML;
                 el.innerHTML = lang === "vi" ? el._viHTML : el.getAttribute("data-lang-en");
             });
 
-            // Đổi ảnh theo ngôn ngữ
             document.querySelectorAll("img[data-src-en]").forEach(img => {
                 if (img._vi === undefined) img._vi = { src: img.getAttribute("src"), alt: img.getAttribute("alt") };
                 if (lang === "en") {
-                    // Chưa có file ảnh tiếng Anh -> dùng lại ảnh gốc thay vì hiện ảnh lỗi
                     img.onerror = () => { img.onerror = null; img.setAttribute("src", img._vi.src); };
                     img.setAttribute("src", img.getAttribute("data-src-en"));
                     img.setAttribute("alt", img.getAttribute("data-alt-en"));
@@ -1676,8 +1671,7 @@
             currentLang = currentLang === "vi" ? "en" : "vi";
             applyLanguage(currentLang);
         }
-
-        // Pop-up điều khoản: hiện mỗi lần mở trang, chỉ đóng bằng nút "Tiếp tục"
+        
         function initDisclaimer() {
             const overlay = document.getElementById("disclaimer-overlay");
             const modal = overlay.querySelector(".disc-modal");
@@ -1687,10 +1681,9 @@
             let open = true;
 
             document.documentElement.classList.add("disc-open");
-            background.forEach(el => el.setAttribute("inert", ""));   // nội dung phía sau không bấm/Tab tới được
+            background.forEach(el => el.setAttribute("inert", ""));
             modal.focus();
 
-            // Không cho đóng bằng phím Esc; giữ phím Tab trong pop-up
             document.addEventListener("keydown", e => {
                 if (!open) return;
                 if (e.key === "Escape") { e.preventDefault(); return; }
@@ -1698,7 +1691,7 @@
                 const items = Array.from(overlay.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])'));
                 const first = items[0], last = items[items.length - 1];
                 if (!overlay.contains(document.activeElement)) {
-                    e.preventDefault(); first.focus();   // focus lạc ra ngoài (vd. sau khi bấm nền) -> kéo về
+                    e.preventDefault(); first.focus();
                 } else if (e.shiftKey && (document.activeElement === first || document.activeElement === modal)) {
                     e.preventDefault(); last.focus();
                 } else if (!e.shiftKey && document.activeElement === last) {
